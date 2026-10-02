@@ -785,7 +785,9 @@ export class Frontend {
             url,
             pageTheme,
         };
-        if (sentence !== null) { detailsState.sentence = sentence; }
+        if (sentence !== null) {
+            detailsState.sentence = {...sentence, jevOffsetUnit: textSource.type === 'range' ? 'code-point' : 'utf-16'};
+        }
         if (documentTitle !== null) { detailsState.documentTitle = documentTitle; }
         const {tabId, frameId} = this._application;
         /** @type {import('display').HistoryContent} */

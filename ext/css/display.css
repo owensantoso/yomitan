@@ -2123,3 +2123,37 @@ button.footer-notification-close-button {
 :root[data-popup-display-mode=full-width] .frame-resizer-container {
     display: none;
 }
+/* Contextual sense selection preserves the original dictionary order. */
+.jev-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: var(--background-color);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    padding: 0.5em 0.75em;
+    border-bottom: 1px solid var(--light-border-color);
+    font-size: 0.85em;
+}
+.jev-toolbar label { cursor: pointer; }
+.jev-status { margin-left: auto; }
+.jev-sense-winner {
+    scroll-margin-top: 3em;
+    background-color: rgba(38, 148, 114, 0.12);
+    outline: 2px solid #269472;
+    outline-offset: 2px;
+    border-radius: 3px;
+}
+.jev-score {
+    display: inline-block;
+    margin-right: 0.65em;
+    padding: 0.1em 0.35em;
+    font-size: 0.75em;
+    font-weight: normal;
+    border-radius: 3px;
+    color: var(--text-color);
+    background-color: rgba(127, 127, 127, 0.1);
+}
+.jev-sense-winner>.jev-score { background-color: #269472; color: #fff; }

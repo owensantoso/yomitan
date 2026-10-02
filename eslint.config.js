@@ -70,7 +70,8 @@ async function getDependencies(scriptPaths) {
  */
 export default [
     {
-        ignores: ['ext/lib/', 'dev/lib/handlebars/', '**/node_modules/', '**/builds/', 'test-results/'],
+        // Standalone bridge/tool subprojects run their own Node/Python checks.
+        ignores: ['ext/lib/', 'dev/lib/handlebars/', '**/node_modules/', '**/builds/', 'test-results/', 'jev-bridge/', 'jev-tools/', 'jev-media/'],
     },
     ...compat.extends(
         'eslint:recommended',

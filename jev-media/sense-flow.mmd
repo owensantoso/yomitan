@@ -1,0 +1,11 @@
+flowchart TD
+ A[Reader Shift-hovers a word] --> B[Yomitan extracts sentence and occurrence]
+ B --> C[Deinflect and look up installed dictionary]
+ C --> D[Render ordinary popup immediately]
+ C -. Sentence, target, reading, surface, offset and all sense text .-> E[Local bridge: API key remains here]
+ E --> F[TypeSafe JEV: constrained choices + unclear]
+ F --> G[Validate choice and full distribution]
+ G --> H{Current popup and valid non-unclear choice?}
+ H -- yes --> I[Highlight original sense in place]
+ H -- no --> D
+ D --> I

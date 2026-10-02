@@ -443,6 +443,14 @@ export class API {
         return this._invoke('fetchLocalAudioData', {url});
     }
 
+    /**
+     * @param {import('jev').SenseRequest} request
+     * @returns {Promise<import('jev').SenseResult>}
+     */
+    jevEvaluate(request) {
+        return this._invoke('jevEvaluate', {request});
+    }
+
     // Utilities
 
     /**

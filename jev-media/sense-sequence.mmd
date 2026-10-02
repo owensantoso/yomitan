@@ -1,0 +1,19 @@
+sequenceDiagram
+ participant P as Reader / page
+ participant Y as Yomitan
+ participant U as Popup
+ participant B as Local bridge
+ participant J as TypeSafe JEV
+ P->>Y: Shift-hover; extract sentence + exact surface offset
+ Note over Y: Deinflect + installed dictionary lookup
+ Y->>U: Render all senses in original order
+ Y->>B: Sentence, target, reading, surface, offset, all candidate sense text
+ B->>J: Key-authenticated constrained choice; senses + unclear
+ J-->>B: Choice + distribution
+ Note over B: Validate IDs, probabilities and choice
+ B-->>Y: Validated mapped result
+ alt Current popup and non-unclear choice
+ Y->>U: Highlight chosen original sense
+ else Failed, stale, invalid or unclear
+ Note over U: Ordinary popup remains usable
+ end

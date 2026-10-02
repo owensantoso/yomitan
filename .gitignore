@@ -14,3 +14,6 @@ dictionaries/
 ext/manifest.json
 
 ext/lib/*
+
+# Python media and dictionary tools
+**/__pycache__/

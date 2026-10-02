@@ -1,0 +1,9 @@
+{
+  "sense_count": 25,
+  "clips": {
+    "before": {"path": "ABSOLUTE_REAL_CAPTURE", "start": 0, "sentence": "母に電話を掛けた。", "crop": [0,0,952,740]},
+    "after": {"path": "ABSOLUTE_REAL_CAPTURE", "start": 0, "sentence": "母に電話を掛けた。", "crop": [0,0,952,740]},
+    "glasses": {"path": "ABSOLUTE_REAL_CAPTURE", "start": 0, "sentence": "小さい文字が読めなくて、眼鏡を掛けた。", "crop": [0,0,952,740]},
+    "ambiguity": {"path": "ABSOLUTE_REAL_CAPTURE", "start": 0, "sentence": "それ、掛けといて。", "crop": [0,0,952,740], "caption": ["ACTUAL RESULT SUMMARY", "Model confidence isn't correctness."]}
+  }
+}

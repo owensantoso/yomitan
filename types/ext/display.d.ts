@@ -107,6 +107,8 @@ export type HistoryStateSentence = {
     text: string;
     /** The offset from the start of `text` to the full search query. */
     offset: number;
+    /** Scanner range offsets count code points; URL/query offsets count UTF-16 units. */
+    jevOffsetUnit?: 'code-point' | 'utf-16';
 };
 
 /**

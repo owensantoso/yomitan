@@ -23,6 +23,7 @@ import {Mecab} from '../comm/mecab.js';
 import {YomitanApi} from '../comm/yomitan-api.js';
 import {createApiMap, invokeApiMapHandler} from '../core/api-map.js';
 import {ExtensionError} from '../core/extension-error.js';
+import {readResponseJson} from '../core/json.js';
 import {fetchText} from '../core/fetch-utilities.js';
 import {logErrorLevelToNumber} from '../core/log-utilities.js';
 import {log} from '../core/log.js';
@@ -190,6 +191,7 @@ export class Backend {
             ['heartbeat',                    this._onApiHeartbeat.bind(this)],
             ['forceSync',                    this._onApiForceSync.bind(this)],
             ['fetchLocalAudioData',          this._onApiFetchLocalAudioData.bind(this)],
+            ['jevEvaluate',                 this._onApiJevEvaluate.bind(this)],
         ]);
 
         /** @type {import('api').PmApiMap} */
@@ -1189,6 +1191,24 @@ export class Backend {
             data: btoa(binary),
             contentType: contentType,
         };
+    }
+
+    /** @type {import('api').ApiHandler<'jevEvaluate'>} */
+    async _onApiJevEvaluate({request}, sender) {
+        if (sender.id !== chrome.runtime.id || !sender.url?.startsWith(chrome.runtime.getURL(''))) {
+            throw new Error('JEV scoring is available only to extension pages.');
+        }
+        const enabled = await chrome.storage.local.get('jevSenseEnabled');
+        if (enabled.jevSenseEnabled !== true) { throw new Error('Enable JEV context before scoring.'); }
+        const response = await fetch('http://127.0.0.1:4183/api/evaluate', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json', 'X-Jev-Extension': chrome.runtime.id},
+            body: JSON.stringify(request),
+            signal: AbortSignal.timeout(12000),
+            redirect: 'error',
+        });
+        if (!response.ok) { throw new Error(`Local JEV bridge returned HTTP ${response.status}.`); }
+        return readResponseJson(response);
     }
 
     // Command handlers

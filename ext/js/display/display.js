@@ -40,6 +40,8 @@ import {DisplayGenerator} from './display-generator.js';
 import {DisplayHistory} from './display-history.js';
 import {DisplayNotification} from './display-notification.js';
 import {ElementOverflowController} from './element-overflow-controller.js';
+import {JevDisplayController} from './jev-display-controller.js';
+import {normalizeJevSentence} from './jev-sense-ranking.js';
 import {OptionToggleHotkeyHandler} from './option-toggle-hotkey-handler.js';
 import {QueryParser} from './query-parser.js';
 
@@ -65,6 +67,10 @@ export class Display extends EventDispatcher {
         this._hotkeyHandler = hotkeyHandler;
         /** @type {HTMLElement} */
         this._container = querySelectorNotNull(document, '#dictionary-entries');
+        /** @type {JevDisplayController} */
+        this._jevController = new JevDisplayController(application.api);
+        /** @type {boolean} */
+        this._jevPopupContentAuthorized = false;
         /** @type {import('dictionary').DictionaryEntry[]} */
         this._dictionaryEntries = [];
         /** @type {HTMLElement[]} */
@@ -334,6 +340,7 @@ export class Display extends EventDispatcher {
         // Prepare
         await this._hotkeyHelpController.prepare(this._application.api);
         await this._displayGenerator.prepare();
+        await this._jevController.prepare(this._container);
         this._queryParser.prepare();
         this._history.prepare();
         this._optionToggleHotkeyHandler.prepare();
@@ -757,6 +764,9 @@ export class Display extends EventDispatcher {
     /** @type {import('display').DirectApiHandler<'displaySetContent'>} */
     _onMessageSetContent({details}) {
         safePerformance.mark('invokeDisplaySetContent:end');
+        // Public popup URLs can be embedded by websites. Only the authenticated
+        // frame endpoint may authorize automatic remote scoring in a popup.
+        this._jevPopupContentAuthorized = true;
         this.setContent(details);
     }
 
@@ -815,6 +825,7 @@ export class Display extends EventDispatcher {
         /** @type {?import('core').TokenObject} */
         const token = {}; // Unique identifier token
         this._setContentToken = token;
+        this._jevController.reset();
         try {
             // Clear
             safePerformance.mark('display:_onStateChanged:clear:start');
@@ -889,7 +900,7 @@ export class Display extends EventDispatcher {
             historyMode,
             params: this._createSearchParams(type, query, false, sentenceOffset),
             state: {
-                sentence,
+                sentence: {...sentence, jevOffsetUnit: textSource.type === 'range' ? 'code-point' : 'utf-16'},
                 optionsContext,
                 cause: 'queryParser',
             },
@@ -1526,6 +1537,10 @@ export class Display extends EventDispatcher {
         }
 
         this._triggerContentUpdateComplete();
+        if (type === 'terms' && (this._pageType !== 'popup' || this._jevPopupContentAuthorized)) {
+            const sentence = state.sentence ?? {text: queryFull, offset: queryOffset};
+            this._jevController.update(dictionaryEntries, this._dictionaryEntryNodes, normalizeJevSentence(sentence), query);
+        }
         safePerformance.mark('display:contentUpdate:end');
         safePerformance.measure('display:contentUpdate', 'display:contentUpdate:start', 'display:contentUpdate:end');
     }
@@ -2192,7 +2207,7 @@ export class Display extends EventDispatcher {
                 focusEntry: 0,
                 optionsContext: optionsContext !== null ? optionsContext : void 0,
                 url,
-                sentence: sentence !== null ? sentence : void 0,
+                sentence: sentence !== null ? {...sentence, jevOffsetUnit: textSource.type === 'range' ? 'code-point' : 'utf-16'} : void 0,
                 documentTitle,
                 pageTheme: 'light',
             },

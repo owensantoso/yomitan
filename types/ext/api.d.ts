@@ -421,6 +421,10 @@ type ApiSurface = {
         };
         return: {data: string, contentType: string} | null;
     };
+    jevEvaluate: {
+        params: {request: import('./jev').SenseRequest};
+        return: import('./jev').SenseResult;
+    };
 };
 
 type ApiExtraArgs = [sender: chrome.runtime.MessageSender];

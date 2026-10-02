@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2023-2026  Yomitan Authors
+ * Copyright (C) 2016-2022  Yomichan Authors
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,23 +16,19 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import codspeedPlugin from '@codspeed/vitest-plugin';
-import {configDefaults, defineConfig} from 'vitest/config';
+export type SenseRequest = {
+    sentence: string;
+    target: string;
+    reading: string;
+    targetOffset: number;
+    surface: string;
+    candidates: {id: string, text: string}[];
+};
 
-export default defineConfig({
-    plugins: [codspeedPlugin()],
-    test: {
-        exclude: [
-            ...configDefaults.exclude,
-            'dev/lib/**',
-            'test/playwright/**',
-            'test/json.test.js',
-            'jev-bridge/**',
-        ],
-        poolOptions: {
-            threads: {
-                useAtomics: true,
-            },
-        },
-    },
-});
+export type SenseResult = {
+    model: string;
+    choice: string;
+    probabilities: Record<string, number>;
+    confidence: number;
+    latencyMs: number;
+};
