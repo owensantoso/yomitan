@@ -108,3 +108,20 @@ page and changes its fragment after initialization, proving that dictionary
 results can render without starting a bridge request. A checkbox change also
 cannot rank that untrusted initial content. The ordinary authenticated hover
 path is verified separately against the live service.
+
+Normal Chrome profile installation was also verified through native Computer Use.
+The browser-controller URL policy rejects `chrome-extension:` navigation; do not
+try that controller for extension setup pages. Choose the native Chrome surface
+at the outset for manager/setup/popup controls. If a controlling tool rejects an
+action, follow its restriction instead of retrying the same action through another
+controller. Browser web-page automation can also stop when Yomitan's popup opens;
+read the native popup state to verify its rendered result.
+
+For native coordinate input, use the returned screenshot's coordinate system;
+do not infer a Retina scale factor. In this run, clicking the target word and
+pressing Shift+Right triggered the scanner at that pointer position. Accessibility
+checkbox clicks toggled the actual JEV control. Verify every resulting state.
+Normal-profile phone and glasses checks selected original senses 4 and 3 at 500 ms
+and 376 ms respectively. Both used the complete JMdict [2026-10-02]. The original
+Yomitan installation was disabled with its data preserved to prevent two scanners.
+JEV was returned to off after the synthetic checks.
