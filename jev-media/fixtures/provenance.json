@@ -1,0 +1,20 @@
+{
+  "notice": "Only isolated Chrome for Testing fixture pages containing authored Japanese demo sentences and installed JMdict. No normal Chrome or personal tabs. Raw fixture recordings are original speed; no fabricated UI.",
+  "recordings": {
+    "phone.webm": {
+      "bytes": 1317061,
+      "sha256": "14358214d00806c82a229fc6826454c9c401dfb6c006371ba0a37e5ee1007480",
+      "originalRecordingBasename": "page@e3e441f6b7c76d8bf95a249e78671849.webm"
+    },
+    "glasses.webm": {
+      "bytes": 685957,
+      "sha256": "d504f55f43aa5f384aced285c8d29bdd88dc5b03706ab2e4e89a3af171be73eb",
+      "originalRecordingBasename": "page@23442d949e16af10d52f42df28b381e1.webm"
+    },
+    "unclear.webm": {
+      "bytes": 610168,
+      "sha256": "c2a47b0de51a107b85b6da76194d21d5a728aab617ca79a72201ed308e819f92",
+      "originalRecordingBasename": "page@87ab51e0e59212df7d988523128979f5.webm"
+    }
+  }
+}

@@ -1,0 +1,552 @@
+{
+  "dictionary": "JMdict [2026-10-02]",
+  "entry": "掛ける",
+  "reading": "かける",
+  "source_sense_count": 25,
+  "candidates": [
+    {
+      "id": "d1",
+      "text": "[1, v1, vt, uk] to hang up (e.g. a coat, a picture on the wall) to let hang to suspend (from) to hoist (e.g. sail) to raise (e.g. flag)"
+    },
+    {
+      "id": "d2",
+      "text": "[2, v1, vt, uk] to put on (e.g. a blanket) to put on top of to cover to lay to spread"
+    },
+    {
+      "id": "d3",
+      "text": "[3, v1, vt, uk] to put on (glasses, etc.) to wear (a necklace, etc.)"
+    },
+    {
+      "id": "d4",
+      "text": "[4, v1, vt, uk] to make (a call)"
+    },
+    {
+      "id": "d5",
+      "text": "[5, v1, vt, uk] to spend (time, money) to expend to use"
+    },
+    {
+      "id": "d6",
+      "text": "[6, v1, vt, uk] to pour (liquid) onto to sprinkle (powder or spices) onto to splash to throw (e.g. water) onto"
+    },
+    {
+      "id": "d7",
+      "text": "[7, v1, vt, uk] to turn on (an engine, radio, etc.) to set (a dial, alarm clock, etc.) to put on (a DVD, song, etc.) to use (a device, implement, etc.)"
+    },
+    {
+      "id": "d8",
+      "text": "[8, v1, vt, uk] to cause (someone inconvenience, trouble, etc.) to burden (someone) to impose"
+    },
+    {
+      "id": "d9",
+      "text": "[9, v1, vt, math, uk] to multiply (arithmetic operation)"
+    },
+    {
+      "id": "d10",
+      "text": "[10, v1, vt, uk] to secure (e.g. lock)"
+    },
+    {
+      "id": "d11",
+      "text": "[11, v1, vt, uk] to take a seat to sit to rest (something on something else) to support (something on something else)"
+    },
+    {
+      "id": "d12",
+      "text": "[12, v1, vt, uk] to bind"
+    },
+    {
+      "id": "d13",
+      "text": "[13, v1, vt, uk] to wager to bet to risk to stake to gamble"
+    },
+    {
+      "id": "d14",
+      "text": "[14, v1, vt, uk] to put an effect (spell, anaesthetic, etc.) on"
+    },
+    {
+      "id": "d15",
+      "text": "[15, v1, vt, uk] to hold (a play, festival, etc.)"
+    },
+    {
+      "id": "d16",
+      "text": "[16, v1, vt, uk] to hold an emotion for (pity, hope, etc.)"
+    },
+    {
+      "id": "d17",
+      "text": "[17, v1, vt, uk] to argue (in court) to deliberate (in a meeting) to present (e.g. idea to a conference, etc.)"
+    },
+    {
+      "id": "d18",
+      "text": "[18, v1, vt, uk] to increase further"
+    },
+    {
+      "id": "d19",
+      "text": "[19, v1, vt, uk] to catch (in a trap, etc.)"
+    },
+    {
+      "id": "d20",
+      "text": "[20, v1, vt, uk] to set atop"
+    },
+    {
+      "id": "d21",
+      "text": "[21, v1, vt, uk] to erect (a makeshift building)"
+    },
+    {
+      "id": "d22",
+      "text": "[22, v1, vt, uk] to apply (insurance)"
+    },
+    {
+      "id": "d23",
+      "text": "[23, v1, vt, uk] to pun (on a word) to use (a word) as a pivot word to play on words"
+    },
+    {
+      "id": "d24",
+      "text": "[24, suf, v1, uk] to be partway doing ... to begin (but not complete) ... to be about to ..."
+    },
+    {
+      "id": "d25",
+      "text": "[25, suf, v1, uk] to address (someone) to direct (something, to someone) to do (something, to someone)"
+    }
+  ],
+  "cases": [
+    {
+      "kind": "phone",
+      "sentence": "母に電話を掛けた。",
+      "request": {
+        "sentence": "母に電話を掛けた。",
+        "target": "掛ける",
+        "reading": "かける",
+        "targetOffset": 5,
+        "surface": "掛けた",
+        "candidates": [
+          {
+            "id": "d1",
+            "text": "[1, v1, vt, uk] to hang up (e.g. a coat, a picture on the wall) to let hang to suspend (from) to hoist (e.g. sail) to raise (e.g. flag)"
+          },
+          {
+            "id": "d2",
+            "text": "[2, v1, vt, uk] to put on (e.g. a blanket) to put on top of to cover to lay to spread"
+          },
+          {
+            "id": "d3",
+            "text": "[3, v1, vt, uk] to put on (glasses, etc.) to wear (a necklace, etc.)"
+          },
+          {
+            "id": "d4",
+            "text": "[4, v1, vt, uk] to make (a call)"
+          },
+          {
+            "id": "d5",
+            "text": "[5, v1, vt, uk] to spend (time, money) to expend to use"
+          },
+          {
+            "id": "d6",
+            "text": "[6, v1, vt, uk] to pour (liquid) onto to sprinkle (powder or spices) onto to splash to throw (e.g. water) onto"
+          },
+          {
+            "id": "d7",
+            "text": "[7, v1, vt, uk] to turn on (an engine, radio, etc.) to set (a dial, alarm clock, etc.) to put on (a DVD, song, etc.) to use (a device, implement, etc.)"
+          },
+          {
+            "id": "d8",
+            "text": "[8, v1, vt, uk] to cause (someone inconvenience, trouble, etc.) to burden (someone) to impose"
+          },
+          {
+            "id": "d9",
+            "text": "[9, v1, vt, math, uk] to multiply (arithmetic operation)"
+          },
+          {
+            "id": "d10",
+            "text": "[10, v1, vt, uk] to secure (e.g. lock)"
+          },
+          {
+            "id": "d11",
+            "text": "[11, v1, vt, uk] to take a seat to sit to rest (something on something else) to support (something on something else)"
+          },
+          {
+            "id": "d12",
+            "text": "[12, v1, vt, uk] to bind"
+          },
+          {
+            "id": "d13",
+            "text": "[13, v1, vt, uk] to wager to bet to risk to stake to gamble"
+          },
+          {
+            "id": "d14",
+            "text": "[14, v1, vt, uk] to put an effect (spell, anaesthetic, etc.) on"
+          },
+          {
+            "id": "d15",
+            "text": "[15, v1, vt, uk] to hold (a play, festival, etc.)"
+          },
+          {
+            "id": "d16",
+            "text": "[16, v1, vt, uk] to hold an emotion for (pity, hope, etc.)"
+          },
+          {
+            "id": "d17",
+            "text": "[17, v1, vt, uk] to argue (in court) to deliberate (in a meeting) to present (e.g. idea to a conference, etc.)"
+          },
+          {
+            "id": "d18",
+            "text": "[18, v1, vt, uk] to increase further"
+          },
+          {
+            "id": "d19",
+            "text": "[19, v1, vt, uk] to catch (in a trap, etc.)"
+          },
+          {
+            "id": "d20",
+            "text": "[20, v1, vt, uk] to set atop"
+          },
+          {
+            "id": "d21",
+            "text": "[21, v1, vt, uk] to erect (a makeshift building)"
+          },
+          {
+            "id": "d22",
+            "text": "[22, v1, vt, uk] to apply (insurance)"
+          },
+          {
+            "id": "d23",
+            "text": "[23, v1, vt, uk] to pun (on a word) to use (a word) as a pivot word to play on words"
+          },
+          {
+            "id": "d24",
+            "text": "[24, suf, v1, uk] to be partway doing ... to begin (but not complete) ... to be about to ..."
+          },
+          {
+            "id": "d25",
+            "text": "[25, suf, v1, uk] to address (someone) to direct (something, to someone) to do (something, to someone)"
+          }
+        ]
+      },
+      "response": {
+        "choice": "d4",
+        "probabilities": {
+          "d1": 0,
+          "d2": 0,
+          "d3": 0,
+          "d4": 1,
+          "d5": 0,
+          "d6": 0,
+          "d7": 0,
+          "d8": 0,
+          "d9": 0,
+          "d10": 0,
+          "d11": 0,
+          "d12": 0,
+          "d13": 0,
+          "d14": 0,
+          "d15": 0,
+          "d16": 0,
+          "d17": 0,
+          "d18": 0,
+          "d19": 0,
+          "d20": 0,
+          "d21": 0,
+          "d22": 0,
+          "d23": 0,
+          "d24": 0,
+          "d25": 0,
+          "unclear": 0
+        },
+        "confidence": 1,
+        "model": "jev-1.13.0",
+        "latencyMs": 279
+      }
+    },
+    {
+      "kind": "glasses",
+      "sentence": "小さい文字が読めなくて、眼鏡を掛けた。",
+      "request": {
+        "sentence": "小さい文字が読めなくて、眼鏡を掛けた。",
+        "target": "掛ける",
+        "reading": "かける",
+        "targetOffset": 15,
+        "surface": "掛けた",
+        "candidates": [
+          {
+            "id": "d1",
+            "text": "[1, v1, vt, uk] to hang up (e.g. a coat, a picture on the wall) to let hang to suspend (from) to hoist (e.g. sail) to raise (e.g. flag)"
+          },
+          {
+            "id": "d2",
+            "text": "[2, v1, vt, uk] to put on (e.g. a blanket) to put on top of to cover to lay to spread"
+          },
+          {
+            "id": "d3",
+            "text": "[3, v1, vt, uk] to put on (glasses, etc.) to wear (a necklace, etc.)"
+          },
+          {
+            "id": "d4",
+            "text": "[4, v1, vt, uk] to make (a call)"
+          },
+          {
+            "id": "d5",
+            "text": "[5, v1, vt, uk] to spend (time, money) to expend to use"
+          },
+          {
+            "id": "d6",
+            "text": "[6, v1, vt, uk] to pour (liquid) onto to sprinkle (powder or spices) onto to splash to throw (e.g. water) onto"
+          },
+          {
+            "id": "d7",
+            "text": "[7, v1, vt, uk] to turn on (an engine, radio, etc.) to set (a dial, alarm clock, etc.) to put on (a DVD, song, etc.) to use (a device, implement, etc.)"
+          },
+          {
+            "id": "d8",
+            "text": "[8, v1, vt, uk] to cause (someone inconvenience, trouble, etc.) to burden (someone) to impose"
+          },
+          {
+            "id": "d9",
+            "text": "[9, v1, vt, math, uk] to multiply (arithmetic operation)"
+          },
+          {
+            "id": "d10",
+            "text": "[10, v1, vt, uk] to secure (e.g. lock)"
+          },
+          {
+            "id": "d11",
+            "text": "[11, v1, vt, uk] to take a seat to sit to rest (something on something else) to support (something on something else)"
+          },
+          {
+            "id": "d12",
+            "text": "[12, v1, vt, uk] to bind"
+          },
+          {
+            "id": "d13",
+            "text": "[13, v1, vt, uk] to wager to bet to risk to stake to gamble"
+          },
+          {
+            "id": "d14",
+            "text": "[14, v1, vt, uk] to put an effect (spell, anaesthetic, etc.) on"
+          },
+          {
+            "id": "d15",
+            "text": "[15, v1, vt, uk] to hold (a play, festival, etc.)"
+          },
+          {
+            "id": "d16",
+            "text": "[16, v1, vt, uk] to hold an emotion for (pity, hope, etc.)"
+          },
+          {
+            "id": "d17",
+            "text": "[17, v1, vt, uk] to argue (in court) to deliberate (in a meeting) to present (e.g. idea to a conference, etc.)"
+          },
+          {
+            "id": "d18",
+            "text": "[18, v1, vt, uk] to increase further"
+          },
+          {
+            "id": "d19",
+            "text": "[19, v1, vt, uk] to catch (in a trap, etc.)"
+          },
+          {
+            "id": "d20",
+            "text": "[20, v1, vt, uk] to set atop"
+          },
+          {
+            "id": "d21",
+            "text": "[21, v1, vt, uk] to erect (a makeshift building)"
+          },
+          {
+            "id": "d22",
+            "text": "[22, v1, vt, uk] to apply (insurance)"
+          },
+          {
+            "id": "d23",
+            "text": "[23, v1, vt, uk] to pun (on a word) to use (a word) as a pivot word to play on words"
+          },
+          {
+            "id": "d24",
+            "text": "[24, suf, v1, uk] to be partway doing ... to begin (but not complete) ... to be about to ..."
+          },
+          {
+            "id": "d25",
+            "text": "[25, suf, v1, uk] to address (someone) to direct (something, to someone) to do (something, to someone)"
+          }
+        ]
+      },
+      "response": {
+        "choice": "d3",
+        "probabilities": {
+          "d1": 0,
+          "d2": 0,
+          "d3": 1,
+          "d4": 0,
+          "d5": 0,
+          "d6": 0,
+          "d7": 0,
+          "d8": 0,
+          "d9": 0,
+          "d10": 0,
+          "d11": 0,
+          "d12": 0,
+          "d13": 0,
+          "d14": 0,
+          "d15": 0,
+          "d16": 0,
+          "d17": 0,
+          "d18": 0,
+          "d19": 0,
+          "d20": 0,
+          "d21": 0,
+          "d22": 0,
+          "d23": 0,
+          "d24": 0,
+          "d25": 0,
+          "unclear": 0
+        },
+        "confidence": 1,
+        "model": "jev-1.13.0",
+        "latencyMs": 262
+      }
+    },
+    {
+      "kind": "ambiguous",
+      "sentence": "それ、掛けといて。",
+      "request": {
+        "sentence": "それ、掛けといて。",
+        "target": "掛ける",
+        "reading": "かける",
+        "targetOffset": 3,
+        "surface": "掛けといて",
+        "candidates": [
+          {
+            "id": "d1",
+            "text": "[1, v1, vt, uk] to hang up (e.g. a coat, a picture on the wall) to let hang to suspend (from) to hoist (e.g. sail) to raise (e.g. flag)"
+          },
+          {
+            "id": "d2",
+            "text": "[2, v1, vt, uk] to put on (e.g. a blanket) to put on top of to cover to lay to spread"
+          },
+          {
+            "id": "d3",
+            "text": "[3, v1, vt, uk] to put on (glasses, etc.) to wear (a necklace, etc.)"
+          },
+          {
+            "id": "d4",
+            "text": "[4, v1, vt, uk] to make (a call)"
+          },
+          {
+            "id": "d5",
+            "text": "[5, v1, vt, uk] to spend (time, money) to expend to use"
+          },
+          {
+            "id": "d6",
+            "text": "[6, v1, vt, uk] to pour (liquid) onto to sprinkle (powder or spices) onto to splash to throw (e.g. water) onto"
+          },
+          {
+            "id": "d7",
+            "text": "[7, v1, vt, uk] to turn on (an engine, radio, etc.) to set (a dial, alarm clock, etc.) to put on (a DVD, song, etc.) to use (a device, implement, etc.)"
+          },
+          {
+            "id": "d8",
+            "text": "[8, v1, vt, uk] to cause (someone inconvenience, trouble, etc.) to burden (someone) to impose"
+          },
+          {
+            "id": "d9",
+            "text": "[9, v1, vt, math, uk] to multiply (arithmetic operation)"
+          },
+          {
+            "id": "d10",
+            "text": "[10, v1, vt, uk] to secure (e.g. lock)"
+          },
+          {
+            "id": "d11",
+            "text": "[11, v1, vt, uk] to take a seat to sit to rest (something on something else) to support (something on something else)"
+          },
+          {
+            "id": "d12",
+            "text": "[12, v1, vt, uk] to bind"
+          },
+          {
+            "id": "d13",
+            "text": "[13, v1, vt, uk] to wager to bet to risk to stake to gamble"
+          },
+          {
+            "id": "d14",
+            "text": "[14, v1, vt, uk] to put an effect (spell, anaesthetic, etc.) on"
+          },
+          {
+            "id": "d15",
+            "text": "[15, v1, vt, uk] to hold (a play, festival, etc.)"
+          },
+          {
+            "id": "d16",
+            "text": "[16, v1, vt, uk] to hold an emotion for (pity, hope, etc.)"
+          },
+          {
+            "id": "d17",
+            "text": "[17, v1, vt, uk] to argue (in court) to deliberate (in a meeting) to present (e.g. idea to a conference, etc.)"
+          },
+          {
+            "id": "d18",
+            "text": "[18, v1, vt, uk] to increase further"
+          },
+          {
+            "id": "d19",
+            "text": "[19, v1, vt, uk] to catch (in a trap, etc.)"
+          },
+          {
+            "id": "d20",
+            "text": "[20, v1, vt, uk] to set atop"
+          },
+          {
+            "id": "d21",
+            "text": "[21, v1, vt, uk] to erect (a makeshift building)"
+          },
+          {
+            "id": "d22",
+            "text": "[22, v1, vt, uk] to apply (insurance)"
+          },
+          {
+            "id": "d23",
+            "text": "[23, v1, vt, uk] to pun (on a word) to use (a word) as a pivot word to play on words"
+          },
+          {
+            "id": "d24",
+            "text": "[24, suf, v1, uk] to be partway doing ... to begin (but not complete) ... to be about to ..."
+          },
+          {
+            "id": "d25",
+            "text": "[25, suf, v1, uk] to address (someone) to direct (something, to someone) to do (something, to someone)"
+          }
+        ]
+      },
+      "response": {
+        "choice": "unclear",
+        "probabilities": {
+          "d1": 0.09,
+          "d2": 0.02,
+          "d3": 0.01,
+          "d4": 0.16,
+          "d5": 0,
+          "d6": 0.01,
+          "d7": 0.12,
+          "d8": 0.01,
+          "d9": 0.03,
+          "d10": 0.01,
+          "d11": 0.01,
+          "d12": 0.01,
+          "d13": 0.01,
+          "d14": 0,
+          "d15": 0,
+          "d16": 0,
+          "d17": 0,
+          "d18": 0,
+          "d19": 0,
+          "d20": 0.01,
+          "d21": 0,
+          "d22": 0.01,
+          "d23": 0,
+          "d24": 0.07,
+          "d25": 0.01,
+          "unclear": 0.41000000000000003
+        },
+        "confidence": 0.38,
+        "model": "jev-1.13.0",
+        "latencyMs": 281
+      }
+    }
+  ],
+  "notice": "Public authored demo sentences, actual isolated-browser request/response. Estimates are not accuracy. Illustrations must be labelled simplified illustrations; actual recording is separate."
+}

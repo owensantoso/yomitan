@@ -1,0 +1,54 @@
+{
+  "sense_count": 25,
+  "clips": {
+    "before": {
+      "path": "fixtures/phone.webm",
+      "start": 2.683,
+      "sentence": "母に電話を掛けた。",
+      "crop": [
+        260,
+        266,
+        740,
+        600
+      ],
+      "end": 9.067
+    },
+    "after": {
+      "path": "fixtures/phone.webm",
+      "start": 9.1,
+      "sentence": "母に電話を掛けた。",
+      "crop": [
+        260,
+        266,
+        740,
+        600
+      ]
+    },
+    "glasses": {
+      "path": "fixtures/glasses.webm",
+      "start": 2.948,
+      "sentence": "小さい文字が読めなくて、眼鏡を掛けた。",
+      "crop": [
+        540,
+        369,
+        740,
+        591
+      ]
+    },
+    "ambiguity": {
+      "path": "fixtures/unclear.webm",
+      "start": 2.935,
+      "sentence": "それ、掛けといて。",
+      "crop": [
+        196,
+        472,
+        740,
+        488
+      ],
+      "caption": [
+        "Too little context: JEV chose “unclear”.",
+        "Model confidence isn't correctness."
+      ]
+    }
+  }
+}
