@@ -6,16 +6,25 @@ Yomitan already handles word scanning, dictionary lookup and the popup. This for
 
 **The implementation is on [`feat/jev-sense-highlighting`](https://github.com/owensantoso/yomitan-context/tree/feat/jev-sense-highlighting).** The default `master` branch keeps the upstream code plus this fork's README; switch to the feature branch before building.
 
-## What changes when you look up a word?
+## Demo
 
-A word such as 掛ける can have many dictionary senses. With ordinary lookup, you choose from the whole list. With **JEV context** enabled, the same list stays visible and the suggested meaning gains a highlight:
+A word such as 掛ける can have many dictionary senses. With ordinary lookup, you choose from the whole list. With **JEV context** enabled, the same list stays visible and the suggested meaning gains a highlight.
 
-| Sentence | Demonstrated selection |
-| :------- | :--------------------- |
-| 母に電話を掛けた。 | To make a phone call |
-| 小さい文字が読めなくて、眼鏡を掛けた。 | To put on glasses |
+[Watch or download the 46-second demo](https://github.com/owensantoso/yomitan-context/blob/feat/jev-sense-highlighting/docs/media/yomitan-context-demo.mp4) · MP4, 1.5 MB. The existing video combines explanatory illustrations with recordings of the working popup.
 
-The popup also scrolls the selected sense into view. If Jev chooses `unclear`, no meaning is highlighted. These examples demonstrate the interaction; they are not an accuracy or speed benchmark.
+**Phone call:** 母に電話を掛けた。 → “to make (a call)”
+
+![Actual Yomitan popup for 母に電話を掛けた。, highlighting the phone-call sense](https://raw.githubusercontent.com/owensantoso/yomitan-context/refs/heads/feat/jev-sense-highlighting/docs/media/phone-sense.png)
+
+**Glasses:** 小さい文字が読めなくて、眼鏡を掛けた。 → “to put on (glasses, etc.)”
+
+![Actual Yomitan popup for 小さい文字が読めなくて、眼鏡を掛けた。, highlighting the glasses sense](https://raw.githubusercontent.com/owensantoso/yomitan-context/refs/heads/feat/jev-sense-highlighting/docs/media/glasses-sense.png)
+
+The popup scrolls the selected sense into view. If Jev chooses `unclear`, no meaning is highlighted. The screenshots and video demonstrate the interaction; their scores and individual round-trip times are not an accuracy or speed benchmark.
+
+### Related experiment: Aiko Sense Lab
+
+[Open Aiko Sense Lab](https://macnos.tailafa155.ts.net:8478/) — **private Tailscale access required**. This earlier, separate experiment follows a sentence through four panels: the target word, sentence context, all candidate senses, and the English wording within the selected sense. Choose 掛ける, 取る or 切る and an example sentence to inspect the recorded results; **Run Jev** submits a new live request. It explores the underlying selection behavior rather than the Yomitan popup.
 
 ## Try the fork in Chrome
 
