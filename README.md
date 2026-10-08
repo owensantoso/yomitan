@@ -1,114 +1,63 @@
-# Yomitan
+# Yomitan Context
 
-[![Get Yomitan for Chrome](<https://img.shields.io/chrome-web-store/v/likgccmbimhjbgkjambclfkhldnlhbnn?logo=Google%20Chrome&style=for-the-badge&logoColor=lightblue&color=lightblue&label=get%20yomitan%20for%20chrome%20(stable)>)](https://chrome.google.com/webstore/detail/yomitan/likgccmbimhjbgkjambclfkhldnlhbnn)
-[![Get Yomitan for Firefox](<https://img.shields.io/amo/v/yomitan?logo=Firefox&style=for-the-badge&color=orange&label=get%20yomitan%20for%20firefox%20(stable)>)](https://addons.mozilla.org/en-US/firefox/addon/yomitan/)
-[![Get Yomitan for Edge](https://img.shields.io/badge/dynamic/json?logo=puzzle&label=get%20yomitan%20for%20edge&style=for-the-badge&query=%24.version&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Fidelnfbbmikgfiejhgmddlbkfgiifnnn)](https://microsoftedge.microsoft.com/addons/detail/yomitan/idelnfbbmikgfiejhgmddlbkfgiifnnn)
-[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/yomidevs/yomitan/badge?style=for-the-badge)](https://securityscorecards.dev/viewer/?uri=github.com/yomidevs/yomitan)
+A [Yomitan](https://github.com/yomidevs/yomitan) fork that highlights the dictionary meaning most likely to fit the sentence you're reading.
 
-[![Discord](https://dcbadge.limes.pink/api/server/YkQrXW6TXF?style=for-the-badge)](https://discord.gg/YkQrXW6TXF)
+Yomitan already handles word scanning, dictionary lookup and the popup. This fork adds an optional contextual layer: it asks Jev to choose among the dictionary's existing senses, then highlights the suggested sense in its original position. It does not generate new definitions or hide the other meanings.
 
-# Visit [yomitan.wiki](https://yomitan.wiki) to learn more!
+**The implementation is on [`feat/jev-sense-highlighting`](https://github.com/owensantoso/yomitan-context/tree/feat/jev-sense-highlighting).** The default `master` branch keeps the upstream code plus this fork's README; switch to the feature branch before building.
 
-:wave: **Yomitan is [the successor](https://foosoft.net/posts/passing-the-torch-to-yomitan/) to Yomichan** ([migration guide](https://yomitan.wiki/yomichan-migration/)) which was [sunset](https://foosoft.net/posts/sunsetting-the-yomichan-project/) by its owner on Feb 26, 2023. We have made a number of foundational changes to ensure **the project stays alive, works on latest browser versions, and is easy to contribute to**.
+## What changes when you look up a word?
 
-📢 **New contributors [welcome](#contributing)!**
+A word such as 掛ける can have many dictionary senses. With ordinary lookup, you choose from the whole list. With **JEV context** enabled, the same list stays visible and the suggested meaning gains a highlight:
 
-📢 **Interested in adding a new language to Yomitan? See [here](./docs/development/language-features.md) for thorough documentation!**
+| Sentence | Demonstrated selection |
+| :------- | :--------------------- |
+| 母に電話を掛けた。 | To make a phone call |
+| 小さい文字が読めなくて、眼鏡を掛けた。 | To put on glasses |
 
-## What is Yomitan?
+The popup also scrolls the selected sense into view. If Jev chooses `unclear`, no meaning is highlighted. These examples demonstrate the interaction; they are not an accuracy or speed benchmark.
 
-Yomitan turns your web browser into a tool for building language literacy by helping you **read** texts that would otherwise be too difficult to tackle in [a variety of supported languages](https://yomitan.wiki/supported-languages/).
+## Try the fork in Chrome
 
-Yomitan provides powerful features not available in other browser-based dictionaries:
+This is a personal Chrome prototype. The upstream browser-store versions do not include this feature.
 
-- 💬 Interactive popup definition window for displaying search results.
-- 🔊 Built-in native pronunciation audio with the ability to add your own [custom audio sources](https://yomitan.wiki/advanced/#default-audio-sources).
-- ✍️ Kanji stroke order diagrams are just a click away.
-- 📝 [Automatic flashcard creation](https://yomitan.wiki/anki/) for the [Anki](https://apps.ankiweb.net/) flashcard program via the [AnkiConnect](https://git.sr.ht/~foosoft/anki-connect) plugin.
-- 🔍 Custom search page for easily executing custom search queries.
-- 📖 Support for multiple dictionary formats including [EPWING](https://ja.wikipedia.org/wiki/EPWING) via the [Yomitan Import](https://github.com/yomidevs/yomitan-import) tool.
-- ✨ Clean, modern code makes it easy for developers to [contribute](#contributing) new features and languages.
+Requirements: Node.js 22 or newer, npm, a TypeSafe application programming interface (API) key, and a Yomitan dictionary.
 
-[![Term definitions](img/ss-terms-thumb.png)](img/ss-terms.png)
-[![Kanji information](img/ss-kanji-thumb.png)](img/ss-kanji.png)
-[![Dictionary options](img/ss-dictionaries-thumb.png)](img/ss-dictionaries.png)
-[![Anki options](img/ss-anki-thumb.png)](img/ss-anki.png)
+```sh
+git clone --branch feat/jev-sense-highlighting https://github.com/owensantoso/yomitan-context.git
+cd yomitan-context
+npm ci --ignore-scripts
+npm run build -- --target chrome-dev
+```
 
-## Documentation/How To
+1. Extract `builds/yomitan-chrome-dev.zip` into a stable directory. In Chrome's extension manager, enable Developer mode and choose **Load unpacked** for that directory. Use a separate Chrome profile when trying the prototype so it does not interfere with an existing Yomitan setup.
+2. Import a dictionary in Yomitan Settings and enable it. The live demonstration used the full [JMdict English dictionary](https://github.com/yomidevs/jmdict-yomitan/releases/latest/download/JMdict_english.zip).
+3. Configure the local bridge's key in a private environment file, following the [bridge README](https://github.com/owensantoso/yomitan-context/blob/feat/jev-sense-highlighting/jev-bridge/README.md). Keep the key out of Chrome and the repository. From the repository root, run `node jev-bridge/server.mjs` and leave the bridge running.
+4. Hold Shift and hover over 掛けた in either example sentence. Enable **JEV context** in the popup. A successful result highlights the matching dictionary sense and shows the model's score.
 
-**Please visit the [Yomitan Wiki](https://yomitan.wiki) for the most up-to-date usage documentation.**
+The context switch starts off. Ordinary dictionary lookup remains available when the bridge is unavailable or a request fails.
 
-### Developer Documentation
+## Where processing happens
 
-- Dictionaries
-  - 🛠️ [Making Yomitan Dictionaries](./docs/making-yomitan-dictionaries.md)
-- Anki Integration
-  - 🔧 [Anki handlebar templates](./docs/templates.md)
-- Advanced Features
-- Troubleshooting
-  - 🕷️ [Known browser bugs](./docs/browser-bugs.md)
+The current implementation uses remote Jev inference. When you enable contextual highlighting, the extension sends the extracted sentence, exact hovered occurrence, headword, reading and candidate senses through a loopback bridge at `127.0.0.1:4183` to TypeSafe's Jev service. It does not send the complete page. The bridge keeps the API key outside Chrome and does not persist lookup text or results.
 
-## Installation
+The displayed scores are model option weights, not calibrated correctness. Jev can choose the wrong meaning. The name describes the contextual feature; an on-device backend has not been implemented.
 
-Yomitan comes in two flavors: _stable_ and _testing_. New changes are initially introduced into the _testing_ version, and after some time spent ensuring that they are relatively bug free, they will be promoted to the _stable_ version. If you are technically savvy and don't mind [submitting issues](https://github.com/yomidevs/yomitan/issues/new/choose) on GitHub, try the _testing_ version; otherwise, the _stable_ version will be your best bet. Check [contributing](#contributing) for more information on how to help.
+## Scope and development
 
-- **Google Chrome**
+The current prototype uses sentence context and the first returned term entry in Yomitan's grouped output. Paragraph context, definition reordering, broader accuracy evaluation, Firefox verification and a browser-store release are outside the current implementation.
 
-  - [stable](https://chrome.google.com/webstore/detail/yomitan/likgccmbimhjbgkjambclfkhldnlhbnn)
-  - [testing](https://chrome.google.com/webstore/detail/yomitan-development-build/glnaenfapkkecknnmginabpmgkenenml)
+- [Feature behavior, data flow and verification](https://github.com/owensantoso/yomitan-context/blob/feat/jev-sense-highlighting/JEV.md)
+- [Local bridge configuration and tests](https://github.com/owensantoso/yomitan-context/blob/feat/jev-sense-highlighting/jev-bridge/README.md)
+- [Demo video and carousel source](https://github.com/owensantoso/yomitan-context/blob/feat/jev-sense-highlighting/jev-media/README-v2.md)
+- [Upstream Yomitan documentation](https://yomitan.wiki)
+- [Development setup](CONTRIBUTING.md#setup)
 
-- **Mozilla Firefox**
+## Credits and license
 
-  - [stable](https://addons.mozilla.org/en-US/firefox/addon/yomitan/)
-  - [testing](https://github.com/yomidevs/yomitan/releases) ※
+Built on [Yomitan](https://github.com/yomidevs/yomitan), the successor to [Yomichan](https://github.com/FooSoft/yomichan). The scanner, dictionaries, popup and existing learning tools come from upstream; this fork adds contextual sense highlighting.
 
-- **Microsoft Edge**
-  - [stable](https://microsoftedge.microsoft.com/addons/detail/yomitan/idelnfbbmikgfiejhgmddlbkfgiifnnn)
-  - Testing: Coming soon
-
-※ Unlike Chrome, Firefox does not allow extensions meant for testing to be hosted in the marketplace. You will have to download the desired version and side-load it yourself. You only need to do this once, and you will get updates automatically.
-
-## Contributing
-
-🚀 **Dip your toes into contributing by looking at issues with the label [good first issue](https://github.com/yomidevs/yomitan/issues?q=is%3Aissue+is%3Aopen+label%3A%22gоοd+fіrst+іssսe%22).**
-
-Since this is a distributed effort, we **highly welcome new contributors**! Feel free to browse the [issue tracker](https://github.com/yomidevs/yomitan/issues), and read our [contributing guidelines](./CONTRIBUTING.md).
-
-Here are some ways anyone can help:
-
-- Try using the Yomitan dev build. Not only do you get cutting edge features, but you can help uncover bugs and give feedback to developers early on.
-- Document any UI/UX friction in GitHub Issues. We're looking to make Yomitan more accessible to non-technical users.
-- All the issues in `area/bug` older than 2 months need help reproducing. If anything interests you, please try to reproduce it and report your results. We can't easily tell if these issues are one-off, have since been resolved, or are no longer relevant.
-
-> The current active maintainers of Yomitan spend a lot of their time debugging and triaging issues. When someone files a bug report, we need to assess the frequency and severity of the bug. It is extremely helpful if we get multiple reports of people who experience a bug or people who can contribute additional detail to an existing bug report.
-
-If you're looking to code, please let us know what you plan on working on before submitting a Pull Request. This gives the core maintainers an opportunity to provide feedback early on before you dive too deep. You can do this by opening a GitHub Issue with the proposal.
-
-Some contributions we always appreciate:
-
-- Well-written tests covering different functionalities. This includes [playwright tests](https://github.com/yomidevs/yomitan/tree/master/test/playwright), [benchmark tests](https://github.com/yomidevs/yomitan/tree/master/benches), and unit tests.
-- Increasing our type coverage.
-- More and better documentation!
-
-Information on how to setup and build the codebase can be found [here](./CONTRIBUTING.md#setup).
-
-If you want to add or improve support for a language, read the documentation on [language features](./docs/development/language-features.md).
-
-Feel free to join us on the [Yomitan Discord](https://discord.gg/YkQrXW6TXF).
-
-## Building Yomitan
-
-1. Install [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/).
-
-2. Run `npm ci` to set up the environment.
-
-3. Run `npm run license-report:html` to generate any missing or changed license information.
-
-4. Run `npm run build` for a plain testing build or `npm run-script build -- --all --version {version}` for a release build (replacing `{version}` with a version number).
-
-5. The builds for each browser and release branch can be found in the `builds` directory.
-
-For more information, see [Contributing](./CONTRIBUTING.md#setup).
+The code remains [GNU General Public License version 3 or later](LICENSE). JMdict is © EDRDG, distributed under [Creative Commons Attribution-ShareAlike 4.0](https://www.edrdg.org/edrdg/licence.html). The upstream third-party library and audio attributions are retained below.
 
 ## Third-Party Libraries
 
